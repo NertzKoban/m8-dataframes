@@ -10,13 +10,15 @@ points.against <- c(10, 9, 18, 17)
 points <- data.frame(points.for, points.against)
 
 # Create a new column "diff" that is the difference in points
-points$diff <- c(2, 6, 19, 10)
+points$diff <- points$points.for - points$points.against
 
 # Create a new column "won" which is TRUE if the Seahawks wom
-points$won <- c(TRUE, FALSE, TRUE, TRUE)
+points$won <- points$diff > 0
 
 # Create a vector of the opponents
 opponents <- c('Dolphins', 'Rams', 'Niners', 'Jets')
 
 # Assign your dataframe rownames of their opponents
 rownames(points) [1:4] <- opponents[1:4]
+
+View(points)
